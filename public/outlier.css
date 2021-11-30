@@ -1,0 +1,270 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&family=Titillium+Web:wght@300;400;700&display=swap');
+
+:root {
+  /* colors */
+  --lightGreen: #ddeaea;
+  --green: #568584;
+  --darkGreen: #084948;
+  --red: #bd3131;
+  --blue: #084081;
+  --lightGray: lightgray;
+  --mediumGray: gray;
+  --darkGray: darkGray;
+  --white: #fff;
+  --black: rgb(32, 32, 32);
+
+  /* types */
+  --link: var(--green);
+  --linkHover: var(--darkGreen);
+  --highlight: var(--green);
+  --gridGrey: var(--lightGray);
+  --tooltipBackground: var(--white);
+
+  /* fonts */
+  --bodyFont: 'PT Serif', 'Times New Roman', Times, serif;
+  --headerFont: 'Titillium Web', 'Roboto', Arial, Helvetica, sans-serif;
+  --figureFont: 'Titillium Web', 'Roboto', Arial, Helvetica, sans-serif;
+  --tooltipFont: 'Titillium Web', 'Roboto', Arial, Helvetica, sans-serif;
+
+  /* chart styles */
+  --chartLabel: 0.9rem;
+  --chartLine: 1rem;
+  --chartLineMedium: 3px;
+  --chartLineThick: 5px;
+  --chartLineExtraThick: 10px;
+  --dashes: 2, 2;
+  --indicatorDashes: 3, 2;
+
+  /* other */
+  --areaOpacity: 0.1;
+  --transparent: #ffffff00;
+  --hover: #eee;
+
+  /* classes */
+}
+
+html,
+body {
+  /* position: relative; */
+
+  width: 100%;
+  /* height: 100%; */
+}
+
+body {
+  display: block;
+  color: #333;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: var(--bodyFont);
+  font-size: 16px;
+  line-height: 26px;
+  /* min-height: 3000px; */
+}
+
+a {
+  color: var(--link);
+  text-decoration: underline;
+}
+
+a:hover {
+  color: var(--linkHover);
+  text-decoration: underline;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: var(--headerFont);
+  line-height: 1.2rem;
+}
+h1 {
+  font-size: 3rem;
+}
+h2 {
+  font-size: 2.5rem;
+}
+h3 {
+  font-size: 2rem;
+  margin: 1.3rem 0;
+}
+h4 {
+  font-size: 1.5rem;
+  margin: 1.1rem 0;
+}
+h5 {
+  font-size: 1.2rem;
+  margin: 1.1rem 0;
+}
+figure {
+  padding: 0;
+  margin: 0;
+  font-family: var(--figureFont);
+  margin-top: 30px;
+  position: relative;
+  display: block;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+th {
+  border: solid 1px var(--white);
+  background: var(--lightGray);
+  color: var(--black);
+}
+td {
+  border: solid 1px var(--lightGray);
+  padding: 1px 5px;
+  font-size: 0.9rem;
+}
+
+.chart-title {
+  color: var(--red);
+}
+.tracker-update {
+  font-style: italic;
+}
+.todo {
+  color: var(--red);
+  font-weight: 700;
+}
+.loading {
+  width: 100%;
+  text-align: center;
+}
+img.loader {
+  margin-left: auto;
+  margin-right: auto;
+  width: 70px;
+}
+
+main {
+  display: block;
+  /* position: relative; */
+  width: 90%;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 100px;
+}
+.highlight {
+  /* background: var(--lightGreen); */
+  /* padding: 0px 5px; */
+  font-family: var(--headerFont);
+  font-weight: 700;
+  color: var(--black);
+}
+
+/* tooltip styles */
+.shadow {
+  -webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.428);
+  -moz-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.28);
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.28);
+}
+
+.tooltip {
+  position: absolute;
+  z-index: 5000;
+  top: 30px;
+  left: 30px;
+  padding: 0.3rem 0.5rem;
+  border: solid 1px var(--lightGray);
+  background: var(--tooltipBackground);
+  font-family: var(--tooltipFont);
+  font-size: 0.8rem;
+  display: none;
+  line-height: 0.8rem;
+}
+
+.tt-row {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  grid-gap: 5px;
+  margin: 3px;
+  /* border: solid 1px gray; */
+  padding: 0px;
+}
+.tt-label {
+  text-align: right;
+  font-weight: 700;
+}
+.tt-title {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+/* Chart styles */
+.chart-source {
+  font-size: 0.7rem;
+}
+
+.y-grid path {
+  display: none;
+}
+.y-grid line {
+  stroke: var(--gridGrey);
+  stroke-width: 1px;
+  stroke-dasharray: var(--dashes);
+}
+
+.axis text {
+  font-size: 0.7rem;
+}
+
+.y-axis path,
+.y-axis line {
+  display: none;
+}
+
+.x-axis path {
+  display: none;
+}
+.chart-line {
+  stroke-width: var(--chartLineThick);
+  stroke: var(--red);
+}
+.chart-area-fill {
+  fill: var(--red);
+  opacity: var(--areaOpacity);
+}
+.chart-label {
+  font-size: var(--chartLabel);
+  text-anchor: middle;
+  font-weight: 700;
+}
+.indicatorLine {
+  stroke: var(--black);
+  stroke-width: 1px;
+  stroke-dasharray: var(--indicatorDashes);
+  display: none;
+}
+
+/* Custom Styles */
+td {
+  width: 25%;
+  text-align: center;
+}
+.scroll {
+  display: block;
+  height: 300px;
+  overflow-y: auto;
+}
+
+.scroll-note {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  width: 100%;
+  text-align: center;
+}
+.click-link-add,
+.click-link-remove {
+  color: var(--red);
+  cursor: pointer;
+}
+.click-link-add {
+  display: none;
+}
