@@ -17,13 +17,13 @@
     let d = input.split(' ')
     let formatDate = null
     if (d[0] === 'Jul-Sep') {
-      formatDate = 'Jul to Sept ' + d[1]
+      formatDate = 'at September ' + d[1]
     } else if (d[0] === 'Jan-Mar') {
-      formatDate = 'Jan to Mar ' + d[1]
+      formatDate = 'at March ' + d[1]
     } else if (d[0] === 'Apr-Jun') {
-      formatDate = 'Apr to June ' + d[1]
+      formatDate = 'at June ' + d[1]
     } else if (d[0] === 'Oct-Dec') {
-      formatDate = 'Oct to Dec ' + d[1]
+      formatDate = 'at December ' + d[1]
     }
     return formatDate
   }
