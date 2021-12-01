@@ -226,7 +226,13 @@
     <section>
       <p>
         For the youth aged 15 to 24 years, the unemployment rate in {endMonth}
-        <span class="highlight">{youthChange}</span>.
+        <span class="highlight">{youthChange}</span>. According to the chief
+        director of labour statistics at Stats SA, Malerato Mosiane, the reason
+        the youth unemployment statistics are counted from 15-years-old instead
+        of 18 is based on the South African Schools Act where children must
+        attend school until the age of 15 or grade 9, whichever occurs first.
+        And the Basic Conditions of Employment Act states that it is a criminal
+        offence to employ a person younger than 15.
       </p>
     </section>
     {#await promise}
