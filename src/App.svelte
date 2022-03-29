@@ -159,7 +159,7 @@
     chartFill: true,
     chartFillColor: 'var(--darkGreen)',
     chartFillValue: 'percent_unemployed',
-    source: 'Source: Stats SA Quarterly Labour Force Q2 2021',
+    source: 'Source: Stats SA Quarterly Labour Force',
   }
 
   let chart2 = {
@@ -255,7 +255,7 @@
 
       <p>
         But there are still <span class="highlight">{notActive} million</span>
-        of working age whoa re "not economically active".
+        of working age who are "not economically active".
       </p>
 
       <p>

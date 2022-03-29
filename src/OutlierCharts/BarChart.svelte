@@ -230,7 +230,7 @@
 <figure>
   <h5 class="chart-title">{conf.title}</h5>
   <div id={chartId} class="chart" />
-  <div class="chart-source">{conf.source}</div>
+  <div class="chart-source">Based on the expanded unemployment definition</div>
 </figure>
 
 <style>
