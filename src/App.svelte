@@ -53,7 +53,8 @@
   async function getData() {
     await fetch(
       // 'https://api.datadesk.co.za/csvjson.php?table=unemployment_overview_695402'
-      'https://api.datadesk.co.za/json.php?table=dd_unemployment_4493905'
+      // 'https://api.datadesk.co.za/json.php?table=dd_unemployment_4493905'
+      'https://api.datadesk.co.za/json.php?table=dd_unemployment_march_29_2022_4999048' // dd_unemployment_march29_2022_4999048
     )
       .then((response) => response.json())
       .then((response) => {
