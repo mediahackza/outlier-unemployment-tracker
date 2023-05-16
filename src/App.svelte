@@ -250,7 +250,7 @@
           >31.5 million</span
         >
         people in 2008 to
-        <span class="highlight">{labourForce} million in 2022</span>.
+        <span class="highlight">{labourForce} million in 2023</span>.
       </p>
 
       <p>
