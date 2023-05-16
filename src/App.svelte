@@ -21,7 +21,8 @@
   export let totalDiscouraged = 0
   export let currentYouth = 0
   export let previousYouth = 0
-  export let youthChange
+  export let youthChange;
+  export let latestYear = 2022;
 
   $: quarterChange = calculateChange(currentUnemployment, previousUnemployment)
   $: youthChange = calculateYouthChange(currentYouth, previousYouth)
@@ -58,6 +59,7 @@
     )
       .then((response) => response.json())
       .then((response) => {
+        latestYear = response[response.length - 1].year
         response.forEach((d) => {
           // d['15_to_24_years_unemployment_rate'] =
           //   +d['15_to_24_years_unemployment_rate']
@@ -250,7 +252,7 @@
           >31.5 million</span
         >
         people in 2008 to
-        <span class="highlight">{labourForce} million in 2023</span>.
+        <span class="highlight">{labourForce} million in {latestYear}</span>.
       </p>
 
       <p>
