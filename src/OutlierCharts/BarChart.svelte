@@ -1,9 +1,11 @@
 <script>
   import * as d3 from 'd3'
   import { onMount } from 'svelte'
+    import { dataset_dev } from 'svelte/internal';
   export let data
   export let tooltip
   export let conf
+
   if (!conf.margins) {
     conf.margins = {
       top: 0,
@@ -36,6 +38,7 @@
   let chartId = 'chart-' + randomInt(1000, 10000)
 
   let xValue = conf.xValue
+  console.log(xValue)
   let yValue = conf.yValue
 
   function showTooltip() {
@@ -63,12 +66,16 @@
     // Check for limits on the x-axis
     let xRange = []
     data.forEach((d) => {
+      console.log("this is a thing: ", d)
       xRange.push(d[xValue])
-    })
+    });
+    console.log("xRnage: ", xRange);
     let xLabels = []
     if (conf.xLabelCount) {
       data.forEach((d, i) => {
+        
         if (i % conf.xLabelCount === 0) {
+          
           xLabels.push(d[xValue])
         }
       })
@@ -87,9 +94,27 @@
 
     let y = d3.scaleLinear().range([height, 0]).domain(yRange)
 
+    function wrap(text) {
+      // console.log("test: ", text)
+      console.log("text: ", text)
+      text = d3.select(this)
+      console.log("text: ", text)
+      // console.log("text: ", text)
+    }
+
     function x_axis() {
-      return d3.axisBottom(x)
+     return d3.axisBottom(x).tickFormat(d => {
+        return d
+      })
       // return d3.axisBottom(x).tickFormat(d3.timeFormat('%e %b')) Format time axis
+    }
+
+    function x_axis_year() {
+      return d3.axisBottom(x).tickFormat(d => {
+        console.log("d: ", d)
+        data = d.split(" ")[1];
+        return data;
+      }) 
     }
 
     var formatPercent = function (d) {
@@ -108,6 +133,7 @@
     svg
       .append('g')
       .attr('class', 'y-grid')
+      
       .call(
         y_grid()
           .ticks(5)
@@ -120,6 +146,27 @@
       .attr('class', 'axis x-axis')
       .attr('transform', `translate(0,${height})`)
       .call(x_axis().tickValues(xLabels))
+      .selectAll('.x-axis text')
+      .call((d) => {
+        console.log(d);
+        d.each((a) => {
+          console.log("text:", a)
+          let self = d3.select(this);
+          console.log("self: ", self);
+          let text = a.split(" ");
+
+          d.text('');
+          d.append("tspan")
+            .attr("x", 0)
+            .attr("dy",".8em")
+            .text(text[0])
+
+          d.append("tspan")
+            .attr("x", 0)
+            .attr("dy",".8em")
+            .text(text[1])
+        })
+      })
 
     svg.append('g').attr('class', ' axis y-axis').call(y_axis().ticks(5))
 
